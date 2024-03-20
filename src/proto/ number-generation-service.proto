@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package ru.my.proto;
+
+message NumbersSequenceRequest {
+
+  int32 firstValue = 1;
+  int32 lastValue = 2;
+
+}
+
+message NumbersSequenceResponse {
+
+  int32 currentValue = 2;
+
+}
+
+service NumberGenerationService {
+  rpc generate(NumbersSequenceRequest) returns (stream
+    NumbersSequenceResponse);
+}
